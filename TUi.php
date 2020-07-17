@@ -10,16 +10,13 @@
     <i class="mdui-icon material-icons">menu</i></span>
     <!--名称-->
     <a class="mdui-typo-headline mdui-hidden-xs"><?php _e('%s', $menu->title, $options->title); ?></a>
-     
 <!--右侧按钮集开端-->
     <div class="mdui-toolbar-spacer"></div>
 	<!-- 顶部导航 -->
-
 			<!--UI-->
-			
 				<!--个人信息-->
-				
-            	<span class="nav-link dropdown-toggle" mdui-menu="{target: &#39;#more_menu&#39;}">
+				<?php echo '<img src="' . Typecho_Common::gravatarUrl($user->mail, 220, 'X', 'mm', $request->isSecure()) . '" alt="' . $user->screenName . '" width="40" class="mdui-img-circle"/>'; ?>
+            	<span class="nav-link dropdown-toggle mdui-ripple" mdui-menu="{target: &#39;#more_menu&#39;}">
             		
             		<div class="nav-profile-text"><?php $user->screenName(); ?></div>
             	</span>
@@ -49,7 +46,6 @@
 						</li>
             		</ul>
         		</li>
-			  	
 				<!--更多-->
 				<span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-menu="{target: &#39;#earth_menu&#39;}">
 				<i class="mdui-icon material-icons">more_vert</i></span>
@@ -66,13 +62,15 @@
 					</li>
 				</ul>
 			<!--UI结束-->
-			
-		
 <!--右侧按钮集结束-->
   </div>
 </header>
     <div class="mdui-drawer" id="main-drawer">
   <div class="mdui-list" mdui-collapse="{accordion: true}" style="margin-bottom: 76px;">
+  	<a href="./index.php" class="mdui-list-item">
+      <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-deep-orange">home</i>
+      <div class="mdui-list-item-content">首页</div>
+    </a>
 	<!--按钮1-->
 	<div class="mdui-collapse-item ">
       <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
@@ -81,7 +79,6 @@
         <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
       </div>
       <div class="mdui-collapse-item-body mdui-list">
-        <a href="./index.php" class="mdui-list-item mdui-ripple ">首页概要</a>
         <a href="./profile.php" class="mdui-list-item mdui-ripple ">个人设置</a>
         <a href="./plugins.php" class="mdui-list-item mdui-ripple ">插件管理</a>
         <a href="./themes.php" class="mdui-list-item mdui-ripple ">主页外观</a>
@@ -146,7 +143,7 @@
         function notice() {
             mdui.dialog({
                 title: 'AdminMD公告',
-                content: '本模板当前版本:Vesion1.3<br>开发者:Magneto<br>开源地址：<a href="https://gitee.com/Magnetokuwan/AdminMD" target="_blank">Gitee</a>，<a href="https://github.com/ouyangyanhuo/AdminMD" target="_blank">GitHub</a><br>更新日志：修复已知Bug、登录界面优化、由T-AdminTheme更名为AdminMD',
+                content: '本模板当前版本:Vesion1.3<br>开发者:Magneto<br>开源地址：<a href="https://gitee.com/Magnetokuwan/AdminMD" target="_blank">Gitee</a>，<a href="https://github.com/ouyangyanhuo/AdminMD" target="_blank">GitHub</a><br>更新日志：修复部分Bug、登录界面新增返回验证系统、网站概要页面修改、侧滑栏及顶栏微调.',
                 buttons: [
                     {
                         text: '我知道了'

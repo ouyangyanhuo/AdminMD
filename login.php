@@ -72,11 +72,16 @@ background-color: #6b91c0;/*按钮hover颜色重写*/
         </form>
         
         <p class="more-link">
-        	<div class="mdui-chip">
-        	<a href="<?php $options->siteUrl(); ?>">
+        	<div class="mdui-chip" mdui-dialog="{target: '#x1'}">
 			<span class="mdui-chip-icon"><i class="mdui-icon material-icons">keyboard_backspace</i></span>
 			<span class="mdui-chip-title mdui-text-color-black-text"><?php _e('返回首页'); ?></span>
-			</a>
+			</div>
+			<div class="mdui-dialog" id="x1">
+				<div class="mdui-dialog-title">确定要离开这里吗?</div>
+				<div class="mdui-dialog-content">为防止误触，请确定是否离开这里，如果不离开请点击对话框以外的地方.</div>
+				<div class="mdui-dialog-actions">
+    				<a href="<?php $options->siteUrl(); ?>"><button class="mdui-btn mdui-ripple">确定离开</button></a>
+				</div>
 			</div>
             <?php if($options->allowRegister): ?>
             &bull;
