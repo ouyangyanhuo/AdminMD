@@ -24,7 +24,7 @@ $stat = Typecho_Widget::widget('Widget_Stat');
     </div>
     <div class="mdui-col-md-5">
      	<h3>AdminMD主题公告</h3>
-	   <li>本模板当前版本:Vesion1.5</li>
+	   <li>本模板当前版本:Version1.5</li>
 	   <li>开发者:Magneto</li>
 	   <li>开源地址：<a href="https://gitee.com/Magnetokuwan/AdminMD" target="_blank">Gitee</a>，<a href="https://github.com/ouyangyanhuo/AdminMD" target="_blank">GitHub</a></li>
 	   <li>更新日志：修复部分Bug、网站概要页修改、MDUI核心版本升级为1.0.1、去除非必要部分</li>
