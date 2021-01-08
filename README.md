@@ -8,11 +8,11 @@
 
 1.修复部分Bug
 
-2.登录界面新增返回验证系统
+2.网站概要页修改
 
-3.网站概要页面修改
+3.MDUI核心版本升级为1.0.1
 
-4.侧滑栏及顶栏微调
+4.去除非必要部分
 
 #### 编程语言
 PHP
@@ -37,6 +37,6 @@ PHP
 2.GitHub [https://github.com/ouyangyanhuo/AdminMD](https://github.com/ouyangyanhuo/AdminMD)  适合国外（主仓库）
 #### 使用截图
 
-![登录](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2020/05/22/d7b69c5d1680b30fba2afd2d70ab3dfd.png "登录")
-![后台首页](https://p.pstatp.com/origin/1372c00019f2fada31ae0 "后台首页")
-![文章撰写](https://p.pstatp.com/origin/feeb0002d85922ee5584 "文章撰写")
+![登录](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/01/08/3af177c1328c3d1fc3da5ff26602feee.png "登录")
+![后台首页](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/01/08/b20a84a2ee83e7ffc11a0a9647526959.png "后台首页")
+![文章撰写](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/01/08/b9d05b9232a840955576d480193d2cbe.png "文章撰写")

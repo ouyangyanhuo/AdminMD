@@ -8,10 +8,44 @@ $stat = Typecho_Widget::widget('Widget_Stat');
 
 
 <div class="mdui-container-fluid" style="font-size:12pt;padding-left:15pt;padding-right:15pt;vertical-align:middle;padding-top:10pt;">
+<div class="mdui-container">
+  <div class="mdui-row">
+    <div class="mdui-col-md-3">
+      <div class="mdui-card ">
+        <div class="mdui-card-media">
+<?php echo '<img src="' . Typecho_Common::gravatarUrl($user->mail, 220, 'X', 'mm', $request->isSecure()) . '" alt="' . $user->screenName . '" width="40">'; ?>          		<div class="mdui-card-media-covered mdui-card-media-covered-gradient">
+            <div class="mdui-card-primary">
+              <div class="mdui-card-primary-title"><?php $user->screenName(); ?></div> 
+              <div class="mdui-card-primary-subtitle"><?php if ($user->logged > 0) { $logged = new Typecho_Date($user->logged); _e('最后登录: %s', $logged->word()); } ?></div>
+              </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mdui-col-md-5">
+     	<h3>AdminMD主题公告</h3>
+	   <li>本模板当前版本:Vesion1.5</li>
+	   <li>开发者:Magneto</li>
+	   <li>开源地址：<a href="https://gitee.com/Magnetokuwan/AdminMD" target="_blank">Gitee</a>，<a href="https://github.com/ouyangyanhuo/AdminMD" target="_blank">GitHub</a></li>
+	   <li>更新日志：修复部分Bug、网站概要页修改、MDUI核心版本升级为1.0.1、去除非必要部分</li>
+     </div>
+    <div class="mdui-row">
+     <div class="mdui-col-md-4">
+     	<h3>官方公告</h3>
+	   <div id="typecho-message">
+	     <ul>
+		   <li><?php _e('读取中...'); ?></li>
+		  </ul>
+	   </div>
+     </div>
+   </div>
+       
+  </div>
+</div>
+	
 <div class="page-header">
   <h3 class="page-title">
-  	<svg t="1587465469434" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1966" width="30" height="30"><path d="M1024 466.8H557.4V0c121.9 7.3 236.3 58.4 322.3 144.4 85.9 85.9 137 200.3 144.3 322.4z" fill="#F79633" p-id="1967"></path><path d="M120.7 853.7C42.9 763.8 0 649.7 0 531.6 0 400 51.2 276.4 144.3 183.4c83.5-83.5 194.6-134 312.9-142.5v477.2L120.7 853.7z m372 170.3c131.5 0 255-51.2 347.9-144.1 83.7-83.7 134.2-194.8 142.6-313.1l-475-1.5-337.9 338c90 77.9 204.1 120.7 322.1 120.7h0.3z" fill="#626262" p-id="1968"></path></svg>博客数据
-  </h3>
+	<svg t="1610104014073" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="855" width="30" height="30"><path d="M64 768h896v64H64zM64 192v512h896V192z m320 384H320V384h64z m192 0H512V384h64z m192 0h-64V320h64z" fill="#2071FF" p-id="856"></path></svg> 博客数据</h3>
 </div>
 <div class="row">
   <div class="mdui-col-xs-4">
@@ -104,8 +138,7 @@ $stat = Typecho_Widget::widget('Widget_Stat');
 <br>
 <div class="page-header">
   <h3 class="page-title">
-  	<svg t="1587465557776" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3411" width="30" height="30"><path d="M642 346c-163.476 0-296 132.524-296 296s132.524 296 296 296 296-132.524 296-296-132.524-296-296-296z m0 64c128.13 0 232 103.87 232 232S770.13 874 642 874 410 770.13 410 642s103.87-232 232-232z" fill="#CDCBFF" p-id="3412"></path><path d="M382 86C218.524 86 86 218.524 86 382s132.524 296 296 296 296-132.524 296-296S545.476 86 382 86z m0 64c128.13 0 232 103.87 232 232S510.13 614 382 614 150 510.13 150 382s103.87-232 232-232z" fill="#2600FF" p-id="3413"></path></svg>相关信息
-  </h3>
+  	<svg t="1610104031177" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="855" width="30" height="30"><path d="M64 192h896v64H64zM64 320v512h896V320z m64 256h256v64H128z m576 192H128v-64h576z" fill="#2071FF" p-id="856"></path></svg> 相关信息</h3>
 </div>
 <div class="row">
   <div class="col-md-6 grid-margin stretch-card">

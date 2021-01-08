@@ -48,8 +48,8 @@ background-color: #6b91c0;/*按钮hover颜色重写*/
 }
 </style>
 <!---MDUI核心-->
-<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
-<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css">
+<script src="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
 <div class="typecho-login-wrap">
     <div class="typecho-login">
         <h1>Login</h1>

@@ -1,8 +1,8 @@
 <?php if(!defined('__TYPECHO_ADMIN__')) exit; ?>
 <div class="container-scroller">
-<link rel="stylesheet" href="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/css/mdui.min.css">
-<script src="//cdnjs.loli.net/ajax/libs/mdui/0.4.3/js/mdui.min.js"></script>
-<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo mdui-theme-accent-pink mdui-loaded mdui-drawer-body-left">
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css">
+<script src="///cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
+<body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo content-wrapper-before gradient-45deg-indigo-blue mdui-theme-accent-pink mdui-loaded mdui-drawer-body-left">
 	<header class="mdui-appbar mdui-appbar-fixed">
 			<div class="mdui-toolbar mdui-color-theme">
 		<!--菜单按钮-->
@@ -40,10 +40,6 @@
                 				<span>评论管理</span>
             				</a> 
             			</li>
-            			<li class="mdui-divider"></li>
-						<li class="mdui-menu-item">
-                		<span><center><?php if ($user->logged > 0) { $logged = new Typecho_Date($user->logged); _e('最后登录: %s', $logged->word()); } ?></center></span>
-						</li>
             		</ul>
         		</li>
 				<!--更多-->
@@ -127,31 +123,6 @@
         <a href="./options-reading.php" class="mdui-list-item mdui-ripple ">阅读设置</a>
         <a href="./options-permalink.php" class="mdui-list-item mdui-ripple ">永久链接</a>
       </div>
-    </div>
-    <!--按钮5-->
-	<div class="mdui-collapse-item ">
-      <div class="mdui-collapse-item-header mdui-list-item mdui-ripple">
-        <i class="mdui-list-item-icon mdui-icon material-icons mdui-text-color-red">notifications_active</i>
-        <div class="mdui-list-item-content">系统公告</div>
-        <i class="mdui-collapse-item-arrow mdui-icon material-icons">keyboard_arrow_down</i>
-      </div>
-      <div class="mdui-collapse-item-body mdui-list">
-        <a href="http://typecho.org/blog/" class="mdui-list-item mdui-ripple" target="_blank">Typecho公告</a>
-        <a onclick="notice();" class="mdui-list-item mdui-ripple">AdminMD公告</a>
-      </div>
-      <script type="text/javascript">
-        function notice() {
-            mdui.dialog({
-                title: 'AdminMD公告',
-                content: '本模板当前版本:Vesion1.3<br>开发者:Magneto<br>开源地址：<a href="https://gitee.com/Magnetokuwan/AdminMD" target="_blank">Gitee</a>，<a href="https://github.com/ouyangyanhuo/AdminMD" target="_blank">GitHub</a><br>更新日志：修复部分Bug、登录界面新增返回验证系统、网站概要页面修改、侧滑栏及顶栏微调.',
-                buttons: [
-                    {
-                        text: '我知道了'
-                    }
-                ]
-            });
-        }
-    </script>
     </div>
   </div>
 </div>
