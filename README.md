@@ -1,42 +1,63 @@
 # AdminMD
 
-#### 介绍
+## 介绍
 
 为Typecho博客程序专门美化的后台,框架主要采用MDUI
 
-#### 更新日志:
+## 更新日志:
 
-1.修复部分Bug
+1.由覆盖式模板改为插件式后台模板，一定程度上增强了兼容性
 
-2.网站概要页修改
+2.新增了自定义后台登录页面一键自定义
 
-3.MDUI核心版本升级为1.0.1
+3.修复了部分已知Bug
 
-4.去除非必要部分
+4.新增了部分未知Bug(理论上是完美移植为插件版)
 
-#### 编程语言
+## 编程语言
 PHP
 
-#### 安装教程
+## 安装教程
 
-覆盖安装admin目录
+导入到Typecho程序 usr/plugins/ 目录中，并解压
 
-切记 一定要备份
+解压后文件夹名称必须为AdminMD
 
-#### 使用须知
+## 使用须知
 
-1.目前版本,部分内容不会根据网站所配置的内容进行变量
+1.当前版本中仍存在部分不影响使用的未知Bug，一旦发现请务必反馈
 
-2.目前版本,无法兼容几乎所有的后台外观增强插件
+2.后台登录页面的背景图可以在插件设置中进行更改
 
-3.后台登录页面的背景图需要到login.php里手动更改 在第18行即可看到URL
+3.由于 Typecho 程序默认使用的 Gravatar 官方的头像线路已被 GWF 屏蔽，因此会导致使用本主题时使后台完全加载缓慢。
 
-#### 下载渠道
+#### 解决 使用须知->3 问题的方法
+
+解决方法
+
+修改 Typecho 程序源代码
+
+需要修改文件地址：网站根目录 ``/var/Typecho/Common.php``第 937 行
+
+修改前：
+
+```
+$url = $isSecure ? 'https://secure.gravatar.com' : 'http://www.gravatar.com';
+```
+修改后：
+```
+$url = $isSecure ? 'https://sdn.geekzu.org' : 'http://www.gravatar.com';
+```
+
+其中 ``https://sdn.geekzu.org`` 可以替换为别的 Gravatar 国内代理地址
+
+## 下载渠道
 1.Gitte [https://gitee.com/Magnetokuwan/AdminMD](https://gitee.com/Magnetokuwan/AdminMD)  适合国内（由GitHub同步至此）
 
 2.GitHub [https://github.com/ouyangyanhuo/AdminMD](https://github.com/ouyangyanhuo/AdminMD)  适合国外（主仓库）
-#### 使用截图
+## 使用截图
 
 ![登录](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/01/08/3af177c1328c3d1fc3da5ff26602feee.png "登录")
-![后台首页](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/01/08/b20a84a2ee83e7ffc11a0a9647526959.png "后台首页")
-![文章撰写](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/01/08/b9d05b9232a840955576d480193d2cbe.png "文章撰写")
+![后台首页](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/748ba291663f8cb917662b703825cb4d.png "后台首页")
+![文章撰写](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/34c412ed6388b9ca1d72d65c89ce1f41.png "文章撰写")
+![数据备份](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/ff54bddcfd504694acaa493d67ee8eda.png "数据备份")
