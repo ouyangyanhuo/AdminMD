@@ -36,7 +36,9 @@ PHP
 
 3.由于 Typecho 程序默认使用的 Gravatar 官方的头像线路已被 GWF 屏蔽，因此会导致使用本主题时使后台完全加载缓慢。
 
-#### 解决 使用须知->3 问题的方法
+4.部分用户使用本插件可能会有菜单栏不生效的问题。
+
+### 解决 使用须知->3 问题的方法
 
 解决方法
 
@@ -55,6 +57,12 @@ $url = $isSecure ? 'https://sdn.geekzu.org' : 'http://www.gravatar.com';
 ```
 
 其中 ``https://sdn.geekzu.org`` 可以替换为别的 Gravatar 国内代理地址
+
+### 解决 使用须知->4 问题的方法
+
+解决方法
+
+复制插件目录中 ``/AdminMD/var/Widget/Meun.php`` 文件并粘贴到 ``/var/Widget`` 目录，并覆盖
 
 ## 下载渠道
 1.Gitte [https://gitee.com/Magnetokuwan/AdminMD](https://gitee.com/Magnetokuwan/AdminMD)  适合国内（由GitHub同步至此）
