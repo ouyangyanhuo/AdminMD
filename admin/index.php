@@ -22,14 +22,14 @@ $stat = Typecho_Widget::widget('Widget_Stat');
     </div>
     <div class="mdui-col-md-5">
      	<h3>AdminMD主题公告</h3>
-	   <li>本模板当前版本:Version1.6</li>
+	   <li>本模板当前版本:Version1.7</li>
 	   <li>开发者:Magneto</li>
 	   <li>开源地址：<a href="https://gitee.com/Magnetokuwan/AdminMD" target="_blank">Gitee</a>，<a href="https://github.com/ouyangyanhuo/AdminMD" target="_blank">GitHub</a></li>
 	   <li>更新日志：
-	   <br>&nbsp;&nbsp;&nbsp;1.由覆盖式模板改为插件式后台模板，一定程度上增强了兼容性
-	   <br>&nbsp;&nbsp;&nbsp;2.新增了自定义后台登录页面一键自定义
-	   <br>&nbsp;&nbsp;&nbsp;3.新增了自定义后台登录页面一键自定义
-	   <br>&nbsp;&nbsp;&nbsp;4.新增了部分未知Bug(理论上是完美移植为插件版)</li>
+	   <br>&nbsp;&nbsp;&nbsp;1.新增鼠标美化
+	   <br>&nbsp;&nbsp;&nbsp;2.修复了自定义登录背景时的错误
+	   <br>&nbsp;&nbsp;&nbsp;3.删除了部分无用内容
+	   <br>&nbsp;&nbsp;&nbsp;4.优化了后台首页评论布局</li>
      </div>
     <div class="mdui-row">
      <div class="mdui-col-md-4">
@@ -156,7 +156,7 @@ $stat = Typecho_Widget::widget('Widget_Stat');
 			</thead>
 		</table>
 		<ul class="mdui-list">
-			<?php Typecho_Widget::widget('Widget_Contents_Post_Recent', 'pageSize=10')->to($posts); ?>
+			<?php Typecho_Widget::widget('Widget_Contents_Post_Recent', 'pageSize=5')->to($posts); ?>
 			<?php if($posts->have()): ?>
 			<?php while($posts->next()): ?>
 			<a href="<?php $posts->permalink(); ?>" target="_blank">
@@ -193,19 +193,24 @@ $stat = Typecho_Widget::widget('Widget_Stat');
 			<?php if($comments->have()): ?>
 			<?php while($comments->next()): ?>
 			<ul class="mdui-list">
-				<li class="mdui-list-item mdui-ripple">
+			  <div class="mdui-row">
+                <div class="mdui-col-xs-2">
+                  <li class="mdui-list-item mdui-ripple">
 					<div class="mdui-list-item-content" style="color:#FF5252;"><?php $comments->date('m.d'); ?></div>
-    				<div class="mdui-list-item">
-    				<img src="<?php $email =$comments->mail; if($email){if(strpos($email,'@qq.com') !==false){$email=str_replace('@qq.com','',$email);echo '//q1.qlogo.cn/g?b=qq&nk='.$email.'&s=100';}else{$email= md5($email);echo Typecho_Common::gravatarUrl($comments->mail, 220, 'X', 'mm', $request->isSecure());}}else{echo 'https://sdn.geekzu.org/avatar/null?';} ?>" alt="Image placeholder" class="avatar rounded-circle" style="width:35px;height:35px;margin-right:5px;"><br>
-    				<?php $comments->author(true); ?>
-    				</div>
-    			<a href="<?php $comments->permalink(); ?>" class="title">
-    			<div class="mdui-list-item" style="color:#3F51B5;"><?php $comments->excerpt(35, '...'); ?></div>
-    			</a>
-    </a>
-  </li>
-  </ul>
-			  
+				  </li>
+				</div>
+                <div class="mdui-col-xs-9">
+			     <a href="<?php $comments->permalink(); ?>" class="title">
+				   <li class="mdui-list-item mdui-ripple">
+					   <div class="mdui-list-item">
+    				   <img src="<?php $email =$comments->mail; if($email){if(strpos($email,'@qq.com') !==false){$email=str_replace('@qq.com','',$email);echo '//q1.qlogo.cn/g?b=qq&nk='.$email.'&s=100';}else{$email= md5($email);echo Typecho_Common::gravatarUrl($comments->mail, 220, 'X', 'mm', $request->isSecure());}}else{echo 'https://sdn.geekzu.org/avatar/null?';} ?>" alt="Image placeholder" class="avatar rounded-circle" style="width:35px;height:35px;margin-right:5px;"> <?php $comments->author(true); ?>
+    				   </div>
+    			       <div class="mdui-list-item" style="color:#3F51B5;"><?php $comments->excerpt(30, '...'); ?></div>
+                   </li>
+                 </a>
+                </div>
+              </div>
+            </ul>
 			  <?php endwhile; ?>
 			  <?php else: ?>
 			  <li class="mdui-list-item mdui-ripple">

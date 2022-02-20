@@ -2,7 +2,7 @@
 
 为Typecho博客程序专门美化的后台,框架主要采用MDUI
 
-[![AdminMD](https://img.shields.io/badge/Magneto-AdminMD-brightgreen?style=for-the-badge&logo=github)](https://www.symbk.cn/technology/37)
+[![AdminMD](https://img.shields.io/badge/Magneto-AdminMD-brightgreen?style=for-the-badge&logo=github)](https://fmcf.cc/technology/37)
 ![Version](https://img.shields.io/badge/Version-1.6-critical?style=for-the-badge&logo=gitee)
 ![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/AdminMD?style=for-the-badge&logo=google)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/AdminMD?style=for-the-badge&logo=twitter)
@@ -11,13 +11,13 @@
 
 ## 更新日志:
 
-1.由覆盖式模板改为插件式后台模板，一定程度上增强了兼容性
+- ✨ 新增鼠标美化
 
-2.新增了自定义后台登录页面一键自定义
+- 修复了自定义登录背景时的错误
 
-3.修复了部分已知Bug
+- 删除了部分无用内容
 
-4.新增了部分未知Bug(理论上是完美移植为插件版)
+- 优化了后台首页评论布局
 
 ## 编程语言
 PHP

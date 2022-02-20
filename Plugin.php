@@ -6,8 +6,8 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  * 
  * @package AdminMD
  * @author Magneto
- * @version 1.6
- * @link https://www.symbk.cn
+ * @version 1.7
+ * @link https://www.fmcf.cc
  */
 
 class AdminMD_Plugin implements Typecho_Plugin_Interface
@@ -112,14 +112,16 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
         <?php
 
         $url = Helper::options()->pluginUrl . '/AdminMD/';
-        $zz1 = '<div class="zz">Green</div>';
-        $zz2 = '<div class="zz">BlueSkyAndMountains</div>';
-        $zz3 = '<div class="zz">Default</div>';
+        $zz1 = '<div class="zz">绿色[你的名字]</div>';
+        $zz2 = '<div class="zz">蓝天和远山[网络]</div>';
+        $zz3 = '<div class="zz">后花园[Pixiv 95741043]</div>';
+        $zz4 = '<div class="zz">Default</div>';
         $bgfengge = new Typecho_Widget_Helper_Form_Element_Radio(
             'bgfengge', array(
             'Green' => _t('<div class="kuai"><img src="http://p5.qhimg.com/bdm/960_593_0/t01573b4f467fdf51e2.jpg" loading="lazy">' . $zz1 . '</div>'),
             'BlueSkyAndMountains' => _t('<div class="kuai"><img src="https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/0531f7895a5627b8737e0690d7dcb4e5.png" loading="lazy">' . $zz2 . '</div>'),
-            'Default' => _t('<div class="kuai"><img src="https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/05b54e433729eb89a067ff992176c442.png" loading="lazy">' . $zz3 . '</div>'),
+            'Back_garden' => _t('<div class="kuai"><img src="https://tva4.sinaimg.cn/large/008aATBzly8gze1cpfkuuj31i00u0k56.jpg" loading="lazy">' . $zz3 . '</div>'),
+            'Default' => _t('<div class="kuai"><img src="https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/05b54e433729eb89a067ff992176c442.png" loading="lazy">' . $zz4 . '</div>'),
         ), 'Green', _t('登陆/注册页面样式'), _t(''));
         $bgfengge->setAttribute('id', 'yangshi');
         $form->addInput($bgfengge);
@@ -184,14 +186,14 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
                 $hed = $hed . '<style>' . $diycss . '</style>';
             } else {
                 if ($skin == 'heike') {
-                    $hed = $hed . '<link rel="stylesheet" href="' . $url . 'assets/skin/' . $skin . '.css?20210715">';
+                    $hed = $hed . '<link rel="stylesheet" href="' . $url . 'assets/skin/' . $skin . '.css?20220220">';
                 } else {
                     $bgUrl = Typecho_Widget::widget('Widget_Options')->plugin('AdminMD')->bgUrl;
                     $zidingyi = "";
                     if ($bgUrl) {
                         $zidingyi = "<style>body{background-image: url(" . $bgUrl . ");}</style>";
                     }
-                    $hed = $hed . '<link rel="stylesheet" href="' . $url . 'assets/skin/' . $skin . '.css?20210715">' . $zidingyi;
+                    $hed = $hed . '<link rel="stylesheet" href="' . $url . 'assets/skin/' . $skin . '.css?20220220">' . $zidingyi;
                 }
             }
 
