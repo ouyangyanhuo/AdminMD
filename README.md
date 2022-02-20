@@ -3,7 +3,7 @@
 为Typecho博客程序专门美化的后台,框架主要采用MDUI
 
 [![AdminMD](https://img.shields.io/badge/Magneto-AdminMD-brightgreen?style=for-the-badge&logo=github)](https://fmcf.cc/technology/37)
-![Version](https://img.shields.io/badge/Version-1.6-critical?style=for-the-badge&logo=gitee)
+![Version](https://img.shields.io/badge/Version-1.7-critical?style=for-the-badge&logo=gitee)
 ![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/AdminMD?style=for-the-badge&logo=google)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/AdminMD?style=for-the-badge&logo=twitter)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/AdminMD?style=for-the-badge&logo=Instagram)
