@@ -3,10 +3,13 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 /**
  * AdminMD是一款基于Material Design设计的typecho后台美化插件
+ * <hr><a style="width:fit-content" id="AdminMD">版本检测中...&nbsp;</div>
+
+ * <script>var simversion="1.8";function update_detec(){var container=document.getElementById("AdminMD");if(!container){return}var ajax=new XMLHttpRequest();container.style.display="block";ajax.open("get","https://api.github.com/repos/ouyangyanhuo/AdminMD/releases/latest");ajax.send();ajax.onreadystatechange=function(){if(ajax.readyState===4&&ajax.status===200){var obj=JSON.parse(ajax.responseText);var newest=obj.tag_name;if(newest>simversion){container.innerHTML="发现新主题版本："+obj.name+'。下载地址：<a href="'+obj.zipball_url+'">点击下载</a>'+"<br>您目前的版本:"+String(simversion)+"。"+'<a target="_blank" href="'+obj.html_url+'">👉查看新版亮点</a>'}else{container.innerHTML="您目前的版本:"+String(simversion)+"。"+"您目前使用的是最新版。"}}}};update_detec();</script>
  * 
  * @package AdminMD
  * @author Magneto
- * @version 1.7
+ * @version 1.8
  * @link https://www.fmcf.cc
  */
 
@@ -110,18 +113,24 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
         ?>
         <link rel="stylesheet" href="<?php Helper::options()->pluginUrl(); ?>/AdminMD/assets/css/login.css">
         <?php
-
+        
+        $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>基础外观</h2>'));
+        $TheNotice->input->setAttribute('style', 'display:none');
+        $form->addInput($TheNotice);
+        
         $url = Helper::options()->pluginUrl . '/AdminMD/';
         $zz1 = '<div class="zz">绿色[你的名字]</div>';
         $zz2 = '<div class="zz">蓝天和远山[网络]</div>';
         $zz3 = '<div class="zz">后花园[Pixiv 95741043]</div>';
-        $zz4 = '<div class="zz">Default</div>';
+        $zz4 = '<div class="zz">枫[Pixiv 66986409]</div>';
+        $zz5 = '<div class="zz">Default</div>';
         $bgfengge = new Typecho_Widget_Helper_Form_Element_Radio(
             'bgfengge', array(
             'Green' => _t('<div class="kuai"><img src="http://p5.qhimg.com/bdm/960_593_0/t01573b4f467fdf51e2.jpg" loading="lazy">' . $zz1 . '</div>'),
             'BlueSkyAndMountains' => _t('<div class="kuai"><img src="https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/0531f7895a5627b8737e0690d7dcb4e5.png" loading="lazy">' . $zz2 . '</div>'),
             'Back_garden' => _t('<div class="kuai"><img src="https://tva4.sinaimg.cn/large/008aATBzly8gze1cpfkuuj31i00u0k56.jpg" loading="lazy">' . $zz3 . '</div>'),
-            'Default' => _t('<div class="kuai"><img src="https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/05b54e433729eb89a067ff992176c442.png" loading="lazy">' . $zz4 . '</div>'),
+            'Maple' => _t('<div class="kuai"><img src="https://tva4.sinaimg.cn/large/008aATBzly1h07hmpmbj5j30yq0g6dvm.jpg" loading="lazy">' . $zz4 . '</div>'),
+            'Default' => _t('<div class="kuai"><img src="https://fastly.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/05b54e433729eb89a067ff992176c442.png" loading="lazy">' . $zz5 . '</div>'),
         ), 'Green', _t('登陆/注册页面样式'), _t(''));
         $bgfengge->setAttribute('id', 'yangshi');
         $form->addInput($bgfengge);
@@ -186,26 +195,26 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
                 $hed = $hed . '<style>' . $diycss . '</style>';
             } else {
                 if ($skin == 'heike') {
-                    $hed = $hed . '<link rel="stylesheet" href="' . $url . 'assets/skin/' . $skin . '.css?20220220">';
+                    $hed = $hed . '<link rel="stylesheet" href="' . $url . 'assets/skin/' . $skin . '.css?' . $suffixVersion.'">';
                 } else {
                     $bgUrl = Typecho_Widget::widget('Widget_Options')->plugin('AdminMD')->bgUrl;
                     $zidingyi = "";
                     if ($bgUrl) {
                         $zidingyi = "<style>body{background-image: url(" . $bgUrl . ");}</style>";
                     }
-                    $hed = $hed . '<link rel="stylesheet" href="' . $url . 'assets/skin/' . $skin . '.css?20220220">' . $zidingyi;
+                    $hed = $hed . '<link rel="stylesheet" href="' . $url . 'assets/skin/' . $skin . '.css?' . $suffixVersion.'">' . $zidingyi;
                 }
             }
 
             echo $hed;
         }else{
             /* 添加 Material Design style */
-            $hed = $hed . '<link rel="stylesheet" href="' . $url . 'assets/css/style.min.css?v=' . $suffixVersion.'">';
-            $hed = $hed.'<link rel="stylesheet" href="' . $url . 'assets/vendors/mdi/css/materialdesignicons.min.css?v=' . $suffixVersion.'">';
-            $hed = $hed.'<link rel="stylesheet" href="' . $url . 'assets/vendors/css/vendor.bundle.base.css?v=' . $suffixVersion.'">';
-            $hed = $hed.'<script src="' . $url . 'assets/vendors/js/vendor.bundle.base.js?v=' . $suffixVersion.'"></script>';
-            $hed = $hed.'<script src="' . $url . 'assets/js/off-canvas.js?v=' . $suffixVersion.'"></script>';
-            $hed = $hed.'<script src="' . $url . 'assets/js/hoverable-collapse.js?v=' . $suffixVersion.'"></script>';
+            $hed = $hed . '<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/css/style.min.css?v=' . $suffixVersion.'">';
+            $hed = $hed.'<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/vendors/mdi/css/materialdesignicons.min.css?v=' . $suffixVersion.'">';
+            $hed = $hed.'<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/vendors/css/vendor.bundle.base.css?v=' . $suffixVersion.'">';
+            $hed = $hed.'<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/vendors/js/vendor.bundle.base.js?v=' . $suffixVersion.'"></script>';
+            $hed = $hed.'<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/js/off-canvas.js?v=' . $suffixVersion.'"></script>';
+            $hed = $hed.'<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/js/hoverable-collapse.js?v=' . $suffixVersion.'"></script>';
         }
 
         return $hed;
@@ -229,7 +238,7 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
             }
             echo $ft;
         }else{
-            echo '<script src="' . $url . 'assets/js/misc.js?v=' . $suffixVersion.'"></script>';
+            echo '<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/js/misc.js?v=' . $suffixVersion.'"></script>';
         }
 
     }

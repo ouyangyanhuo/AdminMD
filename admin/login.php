@@ -11,8 +11,8 @@ $bodyClass = 'body-100';
 
 include 'header.php';
 ?>
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css">
-<script src="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
+<link rel="stylesheet" href="//fastly.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css">
+<script src="//fastly.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
 <div class="typecho-login-wrap">
     <div class="typecho-login">
         <h1>Login</h1>

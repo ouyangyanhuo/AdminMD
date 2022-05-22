@@ -1,25 +1,38 @@
+<!--
+ * @Author: ouyangyanhuo ouyangyanhuo@vip.qq.com
+ * @Date: 2022-05-22 15:06:27
+ * @LastEditors: ouyangyanhuo ouyangyanhuo@vip.qq.com
+ * @LastEditTime: 2022-05-22 15:07:15
+ * @FilePath: \undefinedc:\Users\PC_Magneto\.ssh\AdminMD\README.md
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+-->
 ## AdminMD介绍
 
 为Typecho博客程序专门美化的后台,框架主要采用MDUI
 
 [![AdminMD](https://img.shields.io/badge/Magneto-AdminMD-brightgreen?style=for-the-badge&logo=github)](https://fmcf.cc/technology/37)
-![Version](https://img.shields.io/badge/Version-1.7-critical?style=for-the-badge&logo=gitee)
-![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/AdminMD?style=for-the-badge&logo=google)
-![License](https://img.shields.io/github/license/ouyangyanhuo/AdminMD?style=for-the-badge&logo=twitter)
-![Stars](https://img.shields.io/github/stars/ouyangyanhuo/AdminMD?style=for-the-badge&logo=Instagram)
-![Forks](https://img.shields.io/github/forks/ouyangyanhuo/AdminMD?style=for-the-badge&logo=facebook)
+![Version](https://img.shields.io/badge/Version-1.8-critical?style=for-the-badge)
+![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/AdminMD?style=for-the-badge)
+![License](https://img.shields.io/github/license/ouyangyanhuo/AdminMD?style=for-the-badge)
+![Stars](https://img.shields.io/github/stars/ouyangyanhuo/AdminMD?style=for-the-badge)
+![Forks](https://img.shields.io/github/forks/ouyangyanhuo/AdminMD?style=for-the-badge)
 
 ## 更新日志:
 
-- ✨ 新增鼠标美化
+- ✨ 新增更新检测
 
-- 修复了自定义登录背景时的错误
+- ✨ 新增一套背景
 
-- 删除了部分无用内容
+- 精简插件本体
 
-- 优化了后台首页评论布局
+- 后台首页覆写
+
+- 重新定义了开发规范（相当于重写）
+
+- 适配了Typecho 1.2
 
 ## 编程语言
+
 PHP
 
 ## 安装教程
@@ -27,6 +40,12 @@ PHP
 导入到Typecho程序 usr/plugins/ 目录中，并解压
 
 解压后文件夹名称必须为AdminMD
+
+## 1.8 及以后版本注意事项
+
+1.更改命名规则：Version1.8 → 1.8
+
+2.将使用 Https 协议引用储存在仓库中的大部分静态资源，且使用Jsdeliv-Fastly线路，如果需要使用自建或本地静态资源，请自行研究。
 
 ## 使用须知
 
@@ -36,7 +55,7 @@ PHP
 
 3.由于 Typecho 程序默认使用的 Gravatar 官方的头像线路已被 GWF 屏蔽，因此会导致使用本主题时使后台完全加载缓慢。
 
-4.部分用户使用本插件可能会有菜单栏不生效的问题。
+4.启用本插件后，若菜单栏未生效请清空缓存(服务器缓存)后，10分钟内会自动生效，禁用同理。
 
 ### 解决 使用须知->3 问题的方法
 
@@ -57,12 +76,6 @@ $url = $isSecure ? 'https://sdn.geekzu.org' : 'http://www.gravatar.com';
 ```
 
 其中 ``https://sdn.geekzu.org`` 可以替换为别的 Gravatar 国内代理地址
-
-### 解决 使用须知->4 问题的方法
-
-解决方法
-
-复制插件目录中 ``/AdminMD/var/Widget/Meun.php`` 文件并粘贴到 ``/var/Widget`` 目录，并覆盖
 
 ## 下载渠道
 1.Gitte [https://gitee.com/Magnetokuwan/AdminMD](https://gitee.com/Magnetokuwan/AdminMD)  适合国内（由GitHub同步至此）

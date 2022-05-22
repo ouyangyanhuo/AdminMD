@@ -5,45 +5,6 @@ include 'menu.php';
 $stat = Typecho_Widget::widget('Widget_Stat');
 ?>
 <div class="mdui-container-fluid" style="font-size:12pt;padding-left:15pt;padding-right:15pt;vertical-align:middle;padding-top:10pt;">
-<div class="mdui-container">
-  <div class="mdui-row">
-    <div class="mdui-col-md-3">
-      <div class="mdui-card ">
-        <div class="mdui-card-media">
-<?php echo '<img src="' . Typecho_Common::gravatarUrl($user->mail, 220, 'X', 'mm', $request->isSecure()) . '" alt="' . $user->screenName . '" width="40">'; ?>          		
-        <div class="mdui-card-media-covered mdui-card-media-covered-gradient">
-            <div class="mdui-card-primary">
-              <div class="mdui-card-primary-title"><?php $user->screenName(); ?></div> 
-              <div class="mdui-card-primary-subtitle"><?php if ($user->logged > 0) { $logged = new Typecho_Date($user->logged); _e('最后登录: %s', $logged->word()); } ?></div>
-              </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="mdui-col-md-5">
-     	<h3>AdminMD主题公告</h3>
-	   <li>本模板当前版本:Version1.7</li>
-	   <li>开发者:Magneto</li>
-	   <li>开源地址：<a href="https://gitee.com/Magnetokuwan/AdminMD" target="_blank">Gitee</a>，<a href="https://github.com/ouyangyanhuo/AdminMD" target="_blank">GitHub</a></li>
-	   <li>更新日志：
-	   <br>&nbsp;&nbsp;&nbsp;1.新增鼠标美化
-	   <br>&nbsp;&nbsp;&nbsp;2.修复了自定义登录背景时的错误
-	   <br>&nbsp;&nbsp;&nbsp;3.删除了部分无用内容
-	   <br>&nbsp;&nbsp;&nbsp;4.优化了后台首页评论布局</li>
-     </div>
-    <div class="mdui-row">
-     <div class="mdui-col-md-4">
-     	<h3>官方公告</h3>
-	   <div id="typecho-message">
-	     <ul>
-		   <li><?php _e('读取中...'); ?></li>
-		  </ul>
-	   </div>
-     </div>
-   </div>
-  </div>
-</div>
-	
 <div class="page-header">
   <h3 class="page-title">
 	<svg t="1610104014073" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="855" width="30" height="30"><path d="M64 768h896v64H64zM64 192v512h896V192z m320 384H320V384h64z m192 0H512V384h64z m192 0h-64V320h64z" fill="#2071FF" p-id="856"></path></svg> 博客数据</h3>

@@ -19,9 +19,8 @@ $url = Helper::options()->pluginUrl . '/AdminMD/';
 	<!-- 顶部导航 -->
 			<!--UI-->
 				<!--个人信息-->
-				<?php echo '<img src="' . Typecho_Common::gravatarUrl($user->mail, 220, 'X', 'mm', $request->isSecure()) . '" alt="' . $user->screenName . '" width="40" class="mdui-img-circle"/>'; ?>
+            	<?php echo '<img src="' . Typecho_Common::gravatarUrl($user->mail, 220, 'X', 'mm', $request->isSecure()) . '" alt="' . $user->screenName . '" width="40" class="mdui-img-circle"/>'; ?>
             	<span class="nav-link dropdown-toggle mdui-ripple" mdui-menu="{target: &#39;#more_menu&#39;}">
-            		
             		<div class="nav-profile-text"><?php $user->screenName(); ?></div>
             	</span>
 				<!--下拉按钮-->
@@ -44,8 +43,11 @@ $url = Helper::options()->pluginUrl . '/AdminMD/';
                 				<span>评论管理</span>
             				</a> 
             			</li>
+					    <li class="mdui-divider"></li>
+						    <li class="mdui-menu-item">
+						    <a class="mdui-ripple"><?php if ($user->logged > 0) { $logged = new Typecho_Date($user->logged); _e('最后登录: %s', $logged->word()); } ?></a>
+					    </li>
             		</ul>
-        		</li>
 				<!--更多-->
 				<span class="mdui-btn mdui-btn-icon mdui-ripple" mdui-menu="{target: &#39;#earth_menu&#39;}">
 				<i class="mdui-icon material-icons">more_vert</i></span>
@@ -92,16 +94,6 @@ $(document).ready(function () {
             ul.html(html);
             cache.setItem('feed', html);
         }, 'json');
-    }
-
-    function applyUpdate(update) {
-        if (update.available) {
-            $('<div class="update-check message error"><p>'
-                + '<?php _e('您当前使用的版本是 %s'); ?>'.replace('%s', update.current) + '<br />'
-                + '<strong><a href="' + update.link + '" target="_blank">'
-                + '<?php _e('官方最新版本是 %s'); ?>'.replace('%s', update.latest) + '</a></strong></p></div>')
-            .insertAfter('.typecho-page-title').effect('highlight');
-        }
     }
 
     if (!!update) {
