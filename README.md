@@ -3,11 +3,11 @@
 为Typecho博客程序专门美化的后台,框架主要采用MDUI
 
 [![AdminMD](https://img.shields.io/badge/Magneto-AdminMD-brightgreen?style=for-the-badge&logo=github)](https://fmcf.cc/technology/37)
-![Version](https://img.shields.io/badge/Version-1.8-critical?style=for-the-badge)
-![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/AdminMD?style=for-the-badge)
-![License](https://img.shields.io/github/license/ouyangyanhuo/AdminMD?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/ouyangyanhuo/AdminMD?style=for-the-badge)
-![Forks](https://img.shields.io/github/forks/ouyangyanhuo/AdminMD?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.8.1-critical)
+![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/AdminMD)
+![License](https://img.shields.io/github/license/ouyangyanhuo/AdminMD)
+![Stars](https://img.shields.io/github/stars/ouyangyanhuo/AdminMD)
+![Forks](https://img.shields.io/github/forks/ouyangyanhuo/AdminMD)
 
 ## 更新日志:
 
