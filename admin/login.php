@@ -1,5 +1,5 @@
 <?php
-include 'common.php';
+'common.php';
 
 if ($user->hasLogin()) {
     $response->redirect($options->adminUrl);
@@ -11,8 +11,8 @@ $bodyClass = 'body-100';
 
 include 'header.php';
 ?>
-<link rel="stylesheet" href="//fastly.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css">
-<script src="//fastly.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
+<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css">
+<script src="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
 <div class="typecho-login-wrap">
     <div class="typecho-login">
         <h1>Login</h1>

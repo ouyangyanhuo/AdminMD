@@ -1,7 +1,7 @@
 <?php if(!defined('__TYPECHO_ADMIN__')) exit; ?>
-<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/admin_js/jquery.js?v=' . $suffixVersion; ?>"></script>
-<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/admin_js/jquery-ui.js?v=' . $suffixVersion; ?>"></script>
-<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/admin_js/typecho.js?v=' . $suffixVersion;?>"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/admin_js/typecho.js"></script>
 <script>
     (function () {
         $(document).ready(function() {

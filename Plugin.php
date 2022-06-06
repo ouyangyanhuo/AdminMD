@@ -5,11 +5,11 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  * AdminMD是一款基于Material Design设计的typecho后台美化插件
  * <hr><a style="width:fit-content" id="AdminMD">版本检测中...&nbsp;</div>
 
- * <script>var simversion="1.8";function update_detec(){var container=document.getElementById("AdminMD");if(!container){return}var ajax=new XMLHttpRequest();container.style.display="block";ajax.open("get","https://api.github.com/repos/ouyangyanhuo/AdminMD/releases/latest");ajax.send();ajax.onreadystatechange=function(){if(ajax.readyState===4&&ajax.status===200){var obj=JSON.parse(ajax.responseText);var newest=obj.tag_name;if(newest>simversion){container.innerHTML="发现新主题版本："+obj.name+'。下载地址：<a href="'+obj.zipball_url+'">点击下载</a>'+"<br>您目前的版本:"+String(simversion)+"。"+'<a target="_blank" href="'+obj.html_url+'">👉查看新版亮点</a>'}else{container.innerHTML="您目前的版本:"+String(simversion)+"。"+"您目前使用的是最新版。"}}}};update_detec();</script>
+ * <script>var simversion="1.8.1";function update_detec(){var container=document.getElementById("AdminMD");if(!container){return}var ajax=new XMLHttpRequest();container.style.display="block";ajax.open("get","https://api.github.com/repos/ouyangyanhuo/AdminMD/releases/latest");ajax.send();ajax.onreadystatechange=function(){if(ajax.readyState===4&&ajax.status===200){var obj=JSON.parse(ajax.responseText);var newest=obj.tag_name;if(newest>simversion){container.innerHTML="发现新主题版本："+obj.name+'。下载地址：<a href="'+obj.zipball_url+'">点击下载</a>'+"<br>您目前的版本:"+String(simversion)+"。"+'<a target="_blank" href="'+obj.html_url+'">👉查看新版亮点</a>'}else{container.innerHTML="您目前的版本:"+String(simversion)+"。"+"您目前使用的是最新版。"}}}};update_detec();</script>
  * 
  * @package AdminMD
  * @author Magneto
- * @version 1.8-Dev
+ * @version 1.8.1
  * @link https://www.fmcf.cc
  */
 
@@ -209,12 +209,12 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
             echo $hed;
         }else{
             /* 添加 Material Design style */
-            $hed = $hed . '<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/css/style.min.css?v=' . $suffixVersion.'">';
-            $hed = $hed.'<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/vendors/mdi/css/materialdesignicons.min.css?v=' . $suffixVersion.'">';
-            $hed = $hed.'<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/vendors/css/vendor.bundle.base.css?v=' . $suffixVersion.'">';
-            $hed = $hed.'<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/vendors/js/vendor.bundle.base.js?v=' . $suffixVersion.'"></script>';
-            $hed = $hed.'<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/js/off-canvas.js?v=' . $suffixVersion.'"></script>';
-            $hed = $hed.'<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/js/hoverable-collapse.js?v=' . $suffixVersion.'"></script>';
+            $hed = $hed . '<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/css/style.min.css">';
+            $hed = $hed.'<link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/MaterialDesign-Webfont/6.6.96/css/materialdesignicons.min.css">';
+            $hed = $hed.'<link rel="stylesheet" href="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/vendors/css/vendor.bundle.base.css?">';
+            $hed = $hed.'<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/vendors/js/vendor.bundle.base.js"></script>';
+            $hed = $hed.'<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/js/off-canvas.js"></script>';
+            $hed = $hed.'<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/js/hoverable-collapse.js"></script>';
         }
 
         return $hed;
@@ -238,7 +238,7 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
             }
             echo $ft;
         }else{
-            echo '<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/js/misc.js?v=' . $suffixVersion.'"></script>';
+            echo '<script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/assets/js/misc.js"></script>';
         }
 
     }
