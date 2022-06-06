@@ -3,25 +3,16 @@
 为Typecho博客程序专门美化的后台,框架主要采用MDUI
 
 [![AdminMD](https://img.shields.io/badge/Magneto-AdminMD-brightgreen?style=for-the-badge&logo=github)](https://fmcf.cc/technology/37)
-![Version](https://img.shields.io/badge/Version-1.8-critical?style=for-the-badge)
-![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/AdminMD?style=for-the-badge)
-![License](https://img.shields.io/github/license/ouyangyanhuo/AdminMD?style=for-the-badge)
-![Stars](https://img.shields.io/github/stars/ouyangyanhuo/AdminMD?style=for-the-badge)
-![Forks](https://img.shields.io/github/forks/ouyangyanhuo/AdminMD?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.8.1-critical)
+![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/AdminMD)
+![License](https://img.shields.io/github/license/ouyangyanhuo/AdminMD)
+![Stars](https://img.shields.io/github/stars/ouyangyanhuo/AdminMD)
+![Forks](https://img.shields.io/github/forks/ouyangyanhuo/AdminMD)
 
 ## 更新日志:
 
-- ✨ 新增更新检测
-
-- ✨ 新增一套背景
-
-- 精简插件本体
-
-- 后台首页覆写
-
-- 重新定义了开发规范（相当于重写）
-
-- 适配了Typecho 1.2
+- 删除了 Jsdeliv 原始线路的所有内容，并替换为 BootCDN 或者 Jsdeliv-Fastly
+- 此版本属于紧急更新 应对 CSS、JS 失效导致的加载问题
 
 ## 编程语言
 
@@ -64,10 +55,10 @@ $url = $isSecure ? 'https://secure.gravatar.com' : 'http://www.gravatar.com';
 ```
 修改后：
 ```
-$url = $isSecure ? 'https://sdn.geekzu.org' : 'http://www.gravatar.com';
+$url = $isSecure ? 'https://dn-qiniu-avatar.qbox.me' : 'http://www.gravatar.com';
 ```
 
-其中 ``https://sdn.geekzu.org`` 可以替换为别的 Gravatar 国内代理地址
+其中 ``https://dn-qiniu-avatar.qbox.me`` 可以替换为别的 Gravatar 国内代理地址
 
 ## 下载渠道
 1.Gitte [https://gitee.com/Magnetokuwan/AdminMD](https://gitee.com/Magnetokuwan/AdminMD)  适合国内（由GitHub同步至此）

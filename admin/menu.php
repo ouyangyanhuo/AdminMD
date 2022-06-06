@@ -4,8 +4,8 @@
 $url = Helper::options()->pluginUrl . '/AdminMD/';
 ?>
 <div class="container-scroller">
-<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css">
-<script src="///cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"></script>
+<link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/css/mdui.min.css">
+<script src="//cdn.bootcdn.net/ajax/libs/mdui/1.0.2/js/mdui.min.js"></script>
 <body class="mdui-appbar-with-toolbar mdui-theme-primary-indigo content-wrapper-before gradient-45deg-indigo-blue mdui-theme-accent-pink mdui-loaded mdui-drawer-body-left">
 	<header class="mdui-appbar mdui-appbar-fixed">
 			<div class="mdui-toolbar mdui-color-theme">
