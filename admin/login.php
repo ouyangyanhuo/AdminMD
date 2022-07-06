@@ -1,5 +1,5 @@
 <?php
-'common.php';
+include 'common.php';
 
 if ($user->hasLogin()) {
     $response->redirect($options->adminUrl);
