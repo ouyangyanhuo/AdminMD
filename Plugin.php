@@ -9,7 +9,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  * 
  * @package AdminMD
  * @author Magneto
- * @version 1.8.1
+ * @version 1.8.2_Alpha
  * @link https://www.fmcf.cc
  */
 
@@ -111,7 +111,7 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
     {
 
         ?>
-        <link rel="stylesheet" href="<?php Helper::options()->pluginUrl(); ?>/AdminMD/assets/css/login.css">
+        <link rel="stylesheet" href="<?php Helper::options()->pluginUrl(); ?>/AdminMD/assets/login.css">
         <?php
         
         $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>基础外观</h2>'));
