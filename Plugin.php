@@ -127,10 +127,10 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
         $bgfengge = new Typecho_Widget_Helper_Form_Element_Radio(
             'bgfengge', array(
             'Green' => _t('<div class="kuai"><img src="http://p5.qhimg.com/bdm/960_593_0/t01573b4f467fdf51e2.jpg" loading="lazy">' . $zz1 . '</div>'),
-            'BlueSkyAndMountains' => _t('<div class="kuai"><img src="https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/0531f7895a5627b8737e0690d7dcb4e5.png" loading="lazy">' . $zz2 . '</div>'),
-            'Back_garden' => _t('<div class="kuai"><img src="https://tva4.sinaimg.cn/large/008aATBzly8gze1cpfkuuj31i00u0k56.jpg" loading="lazy">' . $zz3 . '</div>'),
-            'Maple' => _t('<div class="kuai"><img src="https://tva4.sinaimg.cn/large/008aATBzly1h07hmpmbj5j30yq0g6dvm.jpg" loading="lazy">' . $zz4 . '</div>'),
-            'Default' => _t('<div class="kuai"><img src="https://fastly.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/05b54e433729eb89a067ff992176c442.png" loading="lazy">' . $zz5 . '</div>'),
+            'BlueSkyAndMountains' => _t('<div class="kuai"><img src="https://cdn.jsdelivr.net/gh/fyhgay/CDNS@V3/2021/07/15/0531f7895a5627b8737e0690d7dcb4e5.png" loading="lazy">' . $zz2 . '</div>'),
+            'Back_garden' => _t('<div class="kuai"><img src="https://cdn.jsdelivr.net/gh/fyhgay/CDNS@V3/008aATBzly8gze1cpfkuuj31i00u0k56.jpg" loading="lazy">' . $zz3 . '</div>'),
+            'Maple' => _t('<div class="kuai"><img src="https://cdn.jsdelivr.net/gh/fyhgay/CDNS@V3/008aATBzly1h07hmpmbj5j30yq0g6dvm.jpg" loading="lazy">' . $zz4 . '</div>'),
+            'Default' => _t('<div class="kuai"><img src="https://fastly.jsdelivr.net/gh/fyhgay/CDNS@V3/2021/07/15/05b54e433729eb89a067ff992176c442.png" loading="lazy">' . $zz5 . '</div>'),
         ), 'Green', _t('登陆/注册页面样式'), _t(''));
         $bgfengge->setAttribute('id', 'yangshi');
         $form->addInput($bgfengge);
