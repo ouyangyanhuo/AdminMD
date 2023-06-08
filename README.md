@@ -2,8 +2,8 @@
 
 为Typecho博客程序专门美化的后台,框架主要采用MDUI
 
-[![AdminMD](https://img.shields.io/badge/Magneto-AdminMD-brightgreen?style=for-the-badge&logo=github)](https://fmcf.cc/technology/37)
-![Version](https://img.shields.io/badge/Version-1.8.1-critical)
+[![AdminMD](https://img.shields.io/badge/Magneto-AdminMD-brightgreen?style=for-the-badge&logo=github)](https://fmcf.cc/2020/04/28/)
+![Version](https://img.shields.io/badge/Version-1.8.2_Alpha-critical)
 ![Repo-size](https://img.shields.io/github/repo-size/ouyangyanhuo/AdminMD)
 ![License](https://img.shields.io/github/license/ouyangyanhuo/AdminMD)
 ![Stars](https://img.shields.io/github/stars/ouyangyanhuo/AdminMD)
@@ -11,8 +11,7 @@
 
 ## 更新日志:
 
-- 删除了 Jsdeliv 原始线路的所有内容，并替换为 BootCDN 或者 Jsdeliv-Fastly
-- 此版本属于紧急更新 应对 CSS、JS 失效导致的加载问题
+- 新增了LoginCSS(来自V1.6)
 
 ## 编程语言
 
@@ -66,7 +65,7 @@ $url = $isSecure ? 'https://dn-qiniu-avatar.qbox.me' : 'http://www.gravatar.com'
 2.GitHub [https://github.com/ouyangyanhuo/AdminMD](https://github.com/ouyangyanhuo/AdminMD)  适合国外（主仓库）
 ## 使用截图
 
-![登录](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/01/08/3af177c1328c3d1fc3da5ff26602feee.png "登录")
-![后台首页](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/748ba291663f8cb917662b703825cb4d.png "后台首页")
-![文章撰写](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/34c412ed6388b9ca1d72d65c89ce1f41.png "文章撰写")
-![数据备份](https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/ff54bddcfd504694acaa493d67ee8eda.png "数据备份")
+![登录](https://fastly.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/01/08/3af177c1328c3d1fc3da5ff26602feee.png "登录")
+![后台首页](https://fastly.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/748ba291663f8cb917662b703825cb4d.png "后台首页")
+![文章撰写](https://fastly.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/34c412ed6388b9ca1d72d65c89ce1f41.png "文章撰写")
+![数据备份](https://fastly.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/ff54bddcfd504694acaa493d67ee8eda.png "数据备份")

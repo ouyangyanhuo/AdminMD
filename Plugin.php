@@ -9,7 +9,7 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
  * 
  * @package AdminMD
  * @author Magneto
- * @version 1.8.1
+ * @version 1.8.2_Aplha
  * @link https://www.fmcf.cc
  */
 
