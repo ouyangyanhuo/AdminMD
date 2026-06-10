@@ -1,0 +1,25 @@
+/* Highlight animation to replace jQuery UI effect */
+@keyframes highlight {
+    0% { background-color: inherit; }
+    50% { background-color: var(--highlight-color, #C6D880); }
+    100% { background-color: inherit; }
+}
+
+.highlight-animation {
+    animation: highlight 1s ease-in-out;
+}
+
+/* Success highlight */
+.highlight-success {
+    --highlight-color: #C6D880;
+}
+
+/* Error highlight */
+.highlight-error {
+    --highlight-color: #FBC2C4;
+}
+
+/* Notice highlight */
+.highlight-notice {
+    --highlight-color: #FFD324;
+}

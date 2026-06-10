@@ -1,6 +1,10 @@
 <?php if(!defined('__TYPECHO_ADMIN__')) exit; ?>
+<?php
+$url = Helper::options()->pluginUrl . '/AdminMD/';
+list($prefixVersion, $suffixVersion) = explode('/', Helper::options()->version);
+?>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.bootcdn.net/ajax/libs/jqueryui/1.10.3/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="<?php echo $url; ?>assets/css/animations.css?<?php echo $suffixVersion; ?>">
 <script src="https://fastly.jsdelivr.net/gh/ouyangyanhuo/AdminMD@Version1.7/admin_js/typecho.js"></script>
 <script>
     (function () {
@@ -18,7 +22,7 @@
                 if (!!cookies.notice && 'success|notice|error'.indexOf(cookies.noticeType) >= 0) {
                     var head = $('.typecho-head-nav'),
                         p = $('<div class="message popup ' + cookies.noticeType + '">'
-                        + '<ul><li>' + $.parseJSON(cookies.notice).join('</li><li>') 
+                        + '<ul><li>' + $.parseJSON(cookies.notice).join('</li><li>')
                         + '</li></ul></div>'), offset = 0;
 
                     if (head.length > 0) {
@@ -49,30 +53,32 @@
                     checkScroll();
 
                     p.slideDown(function () {
-                        var t = $(this), color = '#C6D880';
-                        
+                        var t = $(this), highlightClass = 'highlight-success';
+
                         if (t.hasClass('error')) {
-                            color = '#FBC2C4';
+                            highlightClass = 'highlight-error';
                         } else if (t.hasClass('notice')) {
-                            color = '#FFD324';
+                            highlightClass = 'highlight-notice';
                         }
 
-                        t.effect('highlight', {color : color})
-                            .delay(5000).fadeOut(function () {
-                            $(this).remove();
-                        });
+                        t.addClass('highlight-animation ' + highlightClass);
+                        setTimeout(function() {
+                            t.fadeOut(function () {
+                                $(this).remove();
+                            });
+                        }, 5000);
                     });
 
-                    
                     $.cookie(prefix + '__typecho_notice', null, {path : path});
                     $.cookie(prefix + '__typecho_notice_type', null, {path : path});
                 }
 
                 if (cookies.highlight) {
-                    $('#' + cookies.highlight).effect('highlight', 1000);
+                    $('#' + cookies.highlight).addClass('highlight-animation highlight-success');
                     $.cookie(prefix + '__typecho_notice_highlight', null, {path : path});
                 }
             })();
+
             // 导航菜单 tab 聚焦时展开下拉菜单
             (function () {
                 $('#typecho-nav-list').find('.parent a').focus(function() {
@@ -84,13 +90,12 @@
                 });
             })();
 
-
             if ($('.typecho-login').length == 0) {
                 $('a').each(function () {
                     var t = $(this), href = t.attr('href');
 
                     if ((href && href[0] == '#')
-                        || /^<?php echo preg_quote($options->adminUrl, '/'); ?>.*$/.exec(href) 
+                        || /^<?php echo preg_quote($options->adminUrl, '/'); ?>.*$/.exec(href)
                             || /^<?php echo substr(preg_quote(Typecho_Common::url('s', $options->index), '/'), 0, -1); ?>action\/[_a-zA-Z0-9\/]+.*$/.exec(href)) {
                         return;
                     }

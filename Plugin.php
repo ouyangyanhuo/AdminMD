@@ -3,13 +3,10 @@ if (!defined('__TYPECHO_ROOT_DIR__')) exit;
 
 /**
  * AdminMD是一款基于Material Design设计的typecho后台美化插件
- * <hr><a style="width:fit-content" id="AdminMD">版本检测中...&nbsp;</div>
-
- * <script>var simversion="1.8.1";function update_detec(){var container=document.getElementById("AdminMD");if(!container){return}var ajax=new XMLHttpRequest();container.style.display="block";ajax.open("get","https://api.github.com/repos/ouyangyanhuo/AdminMD/releases/latest");ajax.send();ajax.onreadystatechange=function(){if(ajax.readyState===4&&ajax.status===200){var obj=JSON.parse(ajax.responseText);var newest=obj.tag_name;if(newest>simversion){container.innerHTML="发现新主题版本："+obj.name+'。下载地址：<a href="'+obj.zipball_url+'">点击下载</a>'+"<br>您目前的版本:"+String(simversion)+"。"+'<a target="_blank" href="'+obj.html_url+'">👉查看新版亮点</a>'}else{container.innerHTML="您目前的版本:"+String(simversion)+"。"+"您目前使用的是最新版。"}}}};update_detec();</script>
- * 
+ *
  * @package AdminMD
  * @author Magneto
- * @version 1.8.2_Alpha
+ * @version 2.0.0
  * @link https://www.fmcf.cc
  */
 
@@ -112,6 +109,8 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
 
         ?>
         <link rel="stylesheet" href="<?php Helper::options()->pluginUrl(); ?>/AdminMD/assets/login.css">
+        <div id="AdminMD-version" style="display:none; padding: 10px; margin-bottom: 15px; background: #f8f9fa; border-radius: 4px; border-left: 4px solid #4285f4;"></div>
+        <script src="<?php Helper::options()->pluginUrl(); ?>/AdminMD/assets/js/version-check.js"></script>
         <?php
         
         $TheNotice = new Typecho_Widget_Helper_Form_Element_Text('TheNotice', NULL, NULL, _t('<h2>基础外观</h2>'));
@@ -126,7 +125,7 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
         $zz5 = '<div class="zz">Default</div>';
         $bgfengge = new Typecho_Widget_Helper_Form_Element_Radio(
             'bgfengge', array(
-            'Green' => _t('<div class="kuai"><img src="http://p5.qhimg.com/bdm/960_593_0/t01573b4f467fdf51e2.jpg" loading="lazy">' . $zz1 . '</div>'),
+            'Green' => _t('<div class="kuai"><img src="https://p5.qhimg.com/bdm/960_593_0/t01573b4f467fdf51e2.jpg" loading="lazy">' . $zz1 . '</div>'),
             'BlueSkyAndMountains' => _t('<div class="kuai"><img src="https://cdn.jsdelivr.net/gh/fyhgay/CDNS@latest/2021/07/15/0531f7895a5627b8737e0690d7dcb4e5.png" loading="lazy">' . $zz2 . '</div>'),
             'Back_garden' => _t('<div class="kuai"><img src="https://tva4.sinaimg.cn/large/008aATBzly8gze1cpfkuuj31i00u0k56.jpg" loading="lazy">' . $zz3 . '</div>'),
             'Maple' => _t('<div class="kuai"><img src="https://tva4.sinaimg.cn/large/008aATBzly1h07hmpmbj5j30yq0g6dvm.jpg" loading="lazy">' . $zz4 . '</div>'),
@@ -155,6 +154,45 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
     }
 
     /**
+     * 过滤 CSS 内容，防止 XSS 攻击
+     *
+     * @access public
+     * @param string $css CSS 内容
+     * @return string 过滤后的 CSS
+     */
+    public static function sanitizeCss($css)
+    {
+        // 移除 HTML 标签
+        $css = strip_tags($css);
+        // 移除 expression() 和 url() 中的 javascript 协议
+        $css = preg_replace('/expression\s*\(/i', '(', $css);
+        $css = preg_replace('/url\s*\(\s*["\']?\s*javascript:/i', 'url(', $css);
+        // 移除 @import 中的 javascript 协议
+        $css = preg_replace('/@import\s+url\s*\(\s*["\']?\s*javascript:/i', '@import url(', $css);
+        return $css;
+    }
+
+    /**
+     * 过滤和验证 URL
+     *
+     * @access public
+     * @param string $url URL 地址
+     * @return string 过滤后的 URL
+     */
+    public static function sanitizeUrl($url)
+    {
+        // 移除 HTML 标签
+        $url = strip_tags($url);
+        // 只允许 http:// 和 https:// 协议
+        if (!preg_match('/^https?:\/\//i', $url)) {
+            $url = 'https://' . $url;
+        }
+        // 编码特殊字符
+        $url = htmlspecialchars($url, ENT_QUOTES, 'UTF-8');
+        return $url;
+    }
+
+    /**
      *
      * 函数名:readdir($dir)
      * 作用:读取目录所有的文件名
@@ -163,12 +201,14 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
      *
      * */
     public static function readdir($dir) {
-        $handle=opendir($dir);
-        $i=0;
-        while(!!$file = readdir($handle)) {
-            if (($file!=".")and($file!="..")) {
-                $list[$i]=$file;
-                $i=$i+1;
+        $list = [];
+        $handle = opendir($dir);
+        if ($handle === false) {
+            return $list;
+        }
+        while (($file = readdir($handle)) !== false) {
+            if ($file !== '.' && $file !== '..') {
+                $list[] = $file;
             }
         }
         closedir($handle);
@@ -192,6 +232,8 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
             $skin = Typecho_Widget::widget('Widget_Options')->plugin('AdminMD')->bgfengge;
             $diycss = Typecho_Widget::widget('Widget_Options')->plugin('AdminMD')->diycss;
             if ($skin == 'kongbai') {
+                // 过滤 CSS 内容，移除潜在的 XSS 攻击代码
+                $diycss = self::sanitizeCss($diycss);
                 $hed = $hed . '<style>' . $diycss . '</style>';
             } else {
                 if ($skin == 'heike') {
@@ -200,6 +242,8 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
                     $bgUrl = Typecho_Widget::widget('Widget_Options')->plugin('AdminMD')->bgUrl;
                     $zidingyi = "";
                     if ($bgUrl) {
+                        // 验证和过滤 URL
+                        $bgUrl = self::sanitizeUrl($bgUrl);
                         $zidingyi = "<style>body{background-image: url(" . $bgUrl . ");}</style>";
                     }
                     $hed = $hed . '<link rel="stylesheet" href="' . $url . 'assets/skin/' . $skin . '.css?' . $suffixVersion.'">' . $zidingyi;
@@ -231,7 +275,7 @@ class AdminMD_Plugin implements Typecho_Plugin_Interface
             $skin = Typecho_Widget::widget('Widget_Options')->plugin('AdminMD')->bgfengge;
             $ft = '';
             if ($skin == 'heike') {
-                $ft = '<canvas id="canvas"></canvas><script type="text/javascript">window.onload=function(){var canvas=document.getElementById("canvas");var context=canvas.getContext("2d");var W=window.innerWidth;var H=window.innerHeight;canvas.width=W;canvas.height=H;var fontSize=16;var colunms=Math.floor(W/fontSize);var drops=[];for(var i=0;i<colunms;i++){drops.push(0)}var str="111001101000100010010001111001111000100010110001111001001011110110100000";function draw(){context.fillStyle="rgba(0,0,0,0.05)";context.fillRect(0,0,W,H);context.font="700 "+fontSize+"px  微软雅黑";context.fillStyle="#00cc33";for(var i=0;i<colunms;i++){var index=Math.floor(Math.random()*str.length);var x=i*fontSize;var y=drops[i]*fontSize;context.fillText(str[index],x,y);if(y>=canvas.height&&Math.random()>0.99){drops[i]=0}drops[i]++}}function randColor(){var r=Math.floor(Math.random()*256);var g=Math.floor(Math.random()*256);var b=Math.floor(Math.random()*256);return"rgb("+r+","+g+","+b+")"}draw();setInterval(draw,30)};</script>';
+                $ft = '<canvas id="canvas"></canvas><script src="' . $url . 'assets/js/matrix-rain.js?' . $suffixVersion . '"></script>';
             }
             if ($skin == 'lv') {
                 $ft = '<ul class="bg-bubbles"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ul>';
