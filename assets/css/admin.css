@@ -1,0 +1,373 @@
+/**
+ * AdminMD 后台样式（Typecho 1.3.0）
+ *
+ * 1.3.0 后台为「顶部导航 + 侧边抽屉」结构，与 1.2.x 的 typecho-head-nav 完全不同，
+ * 因此本文件只做稳妥的视觉增强，不改变布局坐标系，避免与内核样式互相踩踏。
+ * 需要更激进的效果时，请在插件设置「后台自定义样式」中追加。
+ *
+ * @package AdminMD
+ */
+
+:root {
+    --adminmd-primary: #1a73e8;
+    --adminmd-primary-soft: #e8f0fe;
+    --adminmd-border: #eceff1;
+    --adminmd-text: #202124;
+    --adminmd-muted: #5f6368;
+    --adminmd-radius: 8px;
+}
+
+/* ---------- 顶栏 ---------- */
+
+/* AdminMD 抽屉组件 */
+.adminmd-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 0;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+}
+
+.adminmd-trigger:hover {
+    background: rgba(26, 115, 232, .1);
+}
+
+.adminmd-trigger-label {
+    line-height: 1;
+}
+
+.adminmd-drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 264px;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    z-index: 1200;
+    overflow-y: auto;
+    transform: translateX(-100%);
+    transition: transform .22s ease;
+    box-shadow: 0 0 24px rgba(0, 0, 0, .12);
+}
+
+.adminmd-drawer.adminmd-open {
+    transform: translateX(0);
+}
+
+.adminmd-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, .42);
+    z-index: 1190;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .22s ease, visibility .22s ease;
+}
+
+.adminmd-overlay.adminmd-open {
+    opacity: 1;
+    visibility: visible;
+}
+
+.adminmd-drawer-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 16px 18px;
+    border-bottom: 1px solid var(--adminmd-border);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--adminmd-text);
+}
+
+.adminmd-drawer-brand span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.adminmd-drawer-list {
+    flex: 1;
+    padding: 8px 0 24px;
+}
+
+.adminmd-drawer-foot {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 18px;
+    border-top: 1px solid var(--adminmd-border);
+    font-size: 12px;
+    color: #9aa0a6;
+}
+
+.adminmd-icon {
+    flex: 0 0 20px;
+    display: inline-flex;
+    color: var(--adminmd-muted);
+}
+
+.adminmd-chevron {
+    position: relative;
+    flex: 0 0 16px;
+    width: 16px;
+    height: 16px;
+}
+
+.adminmd-chevron::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 4px;
+    width: 6px;
+    height: 6px;
+    border-right: 1.6px solid #9aa0a6;
+    border-bottom: 1.6px solid #9aa0a6;
+    transform: rotate(45deg);
+    transition: transform .18s ease;
+}
+
+.mdui-collapse-item-open > .mdui-collapse-item-header .adminmd-chevron::after {
+    transform: rotate(-135deg);
+}
+
+.mdui-collapse-item > .mdui-collapse-item-body {
+    display: none;
+}
+
+.mdui-collapse-item-open > .mdui-collapse-item-body {
+    display: block;
+}
+
+.mdui-collapse-item-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 18px;
+    font-size: 14px;
+    color: #374151;
+    cursor: pointer;
+    user-select: none;
+}
+
+.mdui-collapse-item-header:hover,
+.mdui-collapse-item-header:focus-visible {
+    background: #f3f4f6;
+    outline: none;
+}
+
+.mdui-collapse-item-body .mdui-list-item {
+    display: block;
+    padding: 8px 18px 8px 48px;
+    font-size: 13.5px;
+    color: #4b5563;
+    text-decoration: none;
+}
+
+.mdui-collapse-item-body .mdui-list-item:hover {
+    background: #f3f4f6;
+    color: #111827;
+}
+
+.mdui-list-item-active {
+    background: var(--adminmd-primary-soft) !important;
+    color: var(--adminmd-primary) !important;
+    font-weight: 600;
+    box-shadow: inset 3px 0 0 var(--adminmd-primary);
+}
+
+/* 桌面端常驻抽屉 */
+@media (min-width: 1024px) {
+    body.adminmd-has-drawer {
+        padding-left: 264px;
+    }
+
+    .adminmd-drawer {
+        transform: translateX(0);
+        box-shadow: none;
+        border-right: 1px solid var(--adminmd-border);
+    }
+
+    .adminmd-overlay,
+    .adminmd-trigger {
+        display: none;
+    }
+}
+
+/* 顶栏 */
+.typecho-head-nav {
+    background: #fff;
+    border-bottom: 1px solid var(--adminmd-border);
+    box-shadow: 0 1px 3px rgba(60, 64, 67, .08);
+    position: sticky;
+    top: 0;
+    z-index: 1100;
+}
+
+.typecho-head-nav a {
+    color: var(--adminmd-text);
+    border-radius: 6px;
+    transition: background-color .15s ease, color .15s ease;
+}
+
+.typecho-head-nav a:hover {
+    background: var(--adminmd-primary-soft);
+    color: var(--adminmd-primary);
+}
+
+body.adminmd-has-drawer .typecho-head-nav {
+    /* 桌面端抽屉占位后，顶栏需要与内容区对齐 */
+    transition: padding-left .2s ease;
+}
+
+@media (min-width: 1024px) {
+    body.adminmd-has-drawer .typecho-head-nav nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* 抽屉已提供导航，隐藏原生折叠菜单，避免双重菜单 */
+    body.adminmd-has-drawer .typecho-head-nav menu>li:not(.operate) {
+        display: none;
+    }
+
+    body.adminmd-has-drawer .typecho-head-nav .menu-bar {
+        display: none;
+    }
+}
+
+/* ---------- 内容区 ---------- */
+body.adminmd-has-drawer .main .container,
+body.adminmd-has-drawer .main .body {
+    max-width: 1180px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.typecho-page-title {
+    margin: 22px 0 16px;
+    font-weight: 600;
+    color: var(--adminmd-text);
+}
+
+.typecho-page-title h2 {
+    font-size: 22px;
+    font-weight: 600;
+    letter-spacing: .2px;
+}
+
+.typecho-list-table,
+.typecho-page-main {
+    border-radius: var(--adminmd-radius);
+}
+
+/* 表格与表单控件统一圆角与聚焦态 */
+.adminmd-has-drawer input[type="text"],
+.adminmd-has-drawer input[type="password"],
+.adminmd-has-drawer input[type="email"],
+.adminmd-has-drawer input[type="url"],
+.adminmd-has-drawer input[type="number"],
+.adminmd-has-drawer select,
+.adminmd-has-drawer textarea {
+    border: 1px solid #dadce0;
+    border-radius: 6px;
+    transition: border-color .15s ease, box-shadow .15s ease;
+}
+
+.adminmd-has-drawer input:focus,
+.adminmd-has-drawer select:focus,
+.adminmd-has-drawer textarea:focus {
+    outline: none;
+    border-color: var(--adminmd-primary);
+    box-shadow: 0 0 0 3px rgba(26, 115, 232, .16);
+}
+
+.adminmd-has-drawer .btn,
+.adminmd-has-drawer button.primary,
+.adminmd-has-drawer input[type="submit"] {
+    border-radius: 6px;
+    transition: background-color .15s ease, box-shadow .15s ease, transform .06s ease;
+}
+
+.adminmd-has-drawer .btn:active,
+.adminmd-has-drawer button.primary:active {
+    transform: translateY(1px);
+}
+
+.adminmd-has-drawer .btn.primary,
+.adminmd-has-drawer button.primary {
+    background: var(--adminmd-primary);
+    border-color: var(--adminmd-primary);
+    color: #fff;
+}
+
+.adminmd-has-drawer .btn.primary:hover,
+.adminmd-has-drawer button.primary:hover {
+    background: #1765cc;
+}
+
+/* 提示条 */
+.adminmd-has-drawer .message {
+    border-radius: var(--adminmd-radius);
+    border-left-width: 4px;
+}
+
+/* 后台首页卡片 */
+.adminmd-has-drawer .typecho-dashboard .welcome-board {
+    border-radius: var(--adminmd-radius);
+    background: #fff;
+    border: 1px solid var(--adminmd-border);
+    padding: 18px 20px;
+}
+
+/* ---------- 登录页兼容 ---------- */
+.typecho-login h1 a {
+    text-decoration: none;
+}
+
+/* ---------- 回到顶部 ---------- */
+#adminmd-totop {
+    position: fixed;
+    right: 22px;
+    bottom: 22px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: #fff;
+    border: 1px solid var(--adminmd-border);
+    box-shadow: 0 4px 14px rgba(0, 0, 0, .12);
+    color: var(--adminmd-muted);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 1150;
+}
+
+#adminmd-totop.show {
+    display: flex;
+}
+
+#adminmd-totop:hover {
+    color: var(--adminmd-primary);
+    border-color: var(--adminmd-primary);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .adminmd-drawer,
+    .adminmd-overlay,
+    .typecho-head-nav a {
+        transition: none !important;
+    }
+}

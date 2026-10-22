@@ -2,7 +2,7 @@
  * AdminMD 版本检测
  */
 (function() {
-    var currentVersion = '2.0.0';
+    var currentVersion = '2.1.0';
     var container = document.getElementById('AdminMD-version');
 
     if (!container) {

@@ -1,0 +1,12 @@
+# WorkBuddy 项目数据
+.workbuddy-ai/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# 插件运行时可能产生的临时文件
+*.log
+*.bak
